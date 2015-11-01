@@ -59,7 +59,41 @@ CREATE_LOOKUP_TABLE(lt_fPXToPCMSKX,uint16_t,
 		(uint16_t)NULL,
 		(uint16_t)NULL,
 )
-; <
+;
+
+#elif defined(__AVR_ATtiny85__)
+
+#define fMAXPORT fPB
+
+CREATE_LOOKUP_TABLE(lt_fPinToPX,uint8_t,
+		/*  0 */fPB,fPB,fPB,fPB,fPB,fPB,
+)
+;
+
+CREATE_LOOKUP_TABLE(lt_fPinToMask,uint8_t,
+		/*  0 */_BV(0),_BV(1),_BV(2),_BV(3),_BV(4),_BV(5),
+)
+;
+
+CREATE_LOOKUP_TABLE(lt_fPXToPORTX,uint16_t,
+		(uint16_t)NULL,
+		(uint16_t)&PORTB,
+		(uint16_t)NULL,
+		(uint16_t)NULL,
+		(uint16_t)NULL,
+		(uint16_t)NULL,
+)
+;
+
+CREATE_LOOKUP_TABLE(lt_fPXToPCMSKX,uint16_t,
+		(uint16_t)NULL,
+		(uint16_t)&PCMSK,
+		(uint16_t)NULL,
+		(uint16_t)NULL,
+		(uint16_t)NULL,
+		(uint16_t)NULL,
+)
+;
 
 #elif defined(__AVR_ATmega32U4__)
 
